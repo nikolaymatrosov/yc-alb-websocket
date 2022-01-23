@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  server:
+    build:
+      dockerfile: server.Dockerfile
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+  client:
+    deploy:
+      mode: replicated
+      replicas: 6
+    build:
+      dockerfile: client.Dockerfile
+      context: .
+    environment:
+      URL: ws://server:8080/

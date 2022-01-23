@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  socket-io-server:
+    container_name: socket-io-server
+    image: cr.yandex/crp***/socket-io-demo:tag
+    restart: always
+    environment:
+      PORT: 8080
+    ports:
+      - '8080:8080'
